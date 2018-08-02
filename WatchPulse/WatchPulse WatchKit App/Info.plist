@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.gt.WatchPulse</string>
+	<string>pl.gt.WatchPulse</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
