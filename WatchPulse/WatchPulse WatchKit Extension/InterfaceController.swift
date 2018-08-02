@@ -18,10 +18,13 @@ class InterfaceController: WKInterfaceController
     @IBOutlet var l_max: WKInterfaceLabel!
     @IBOutlet var i_heart: WKInterfaceImage!
     @IBOutlet var l_samplesCount: WKInterfaceLabel!
+    @IBOutlet var l_time: WKInterfaceLabel!
     
     private let healthStore = HKHealthStore()
     private let newHKW = WorkoutSession()
     private var heartrateRawSamples: [Int] = []
+    
+    private var startDate = Date()
     
     var workoutActive = false
 
@@ -29,6 +32,8 @@ class InterfaceController: WKInterfaceController
     let heartRateUnit = HKUnit(from: "count/min")
     var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     var currenQuery : HKQuery?
+
+    var timer: Timer? = nil
     
     override func awake(withContext context: Any?)
     {
@@ -60,6 +65,7 @@ class InterfaceController: WKInterfaceController
             }
         }
         
+        timerStart()
         workoutActive = false
         startBtnTapped()
     }
@@ -69,8 +75,7 @@ class InterfaceController: WKInterfaceController
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
         
-        newHKW.end()
-        
+        timer!.invalidate()
     }
 
     func displayNotAllowed() {
@@ -118,9 +123,8 @@ class InterfaceController: WKInterfaceController
         healthStore.start(self.session!)
     }
     
-    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
-        
-        
+    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery?
+    {
         guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
         let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
         //let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
@@ -140,7 +144,8 @@ class InterfaceController: WKInterfaceController
         return heartRateQuery
     }
     
-    func updateHeartRate(_ samples: [HKSample]?) {
+    func updateHeartRate(_ samples: [HKSample]?)
+    {
         guard let heartRateQuantitySamples = samples as? [HKQuantitySample] else {return}
         
         for sample in heartRateQuantitySamples
@@ -153,21 +158,45 @@ class InterfaceController: WKInterfaceController
         DispatchQueue.main.async {
             guard let sample = heartRateQuantitySamples.first else{return}
             let value = sample.quantity.doubleValue(for: self.heartRateUnit)
-            self.l_current.setText("\(UInt16(value)) BPM")
-            self.l_samplesCount.setText("Ilość próbek: \(self.heartrateRawSamples.count)")
+            
+            self.l_current.setText("\(UInt16(value))")
             
             self.l_avg.setText( "\(self.heartrateRawSamples.avg)" )
             self.l_max.setText( "\(self.heartrateRawSamples.max)" )
+            
+            self.l_samplesCount.setText("Ilość próbek: \(self.heartrateRawSamples.count)")
             
             // retrieve source from sample
             self.animateHeart()
         }
     }
     
-    func animateHeart() {
-        self.animate(withDuration: 0.5) {
-            self.i_heart.setWidth(25)
-            self.i_heart.setHeight(25)
+    func timerStart()
+    {
+        if(timer == nil) // init timer
+        {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in  // the `[weak self] reference is only needed if you reference `self` in the closure
+                self!.timerTick()
+            }
+        }
+        timer?.fire()
+    }
+    
+    func timerTick()
+    {
+        let secondsSinceStart = Int( Date().timeIntervalSince(self.startDate) )
+        let secondsAndMinutes = secondsToHoursMinutesSeconds(seconds: secondsSinceStart)
+        let minutesString = String(secondsAndMinutes.minutes)
+        let secondsString = String(format: "%02d", secondsAndMinutes.seconds)
+        self.l_time.setText( "Czas: \(minutesString):\(secondsString)" )
+    }
+    
+    func animateHeart()
+    {
+        self.animate(withDuration: 0.5)
+        {
+            self.i_heart.setWidth(30)
+            self.i_heart.setHeight(30)
         }
         
         let when = DispatchTime.now() + Double(Int64(0.5 * double_t(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
@@ -175,8 +204,8 @@ class InterfaceController: WKInterfaceController
         DispatchQueue.global(qos: .default).async {
             DispatchQueue.main.asyncAfter(deadline: when) {
                 self.animate(withDuration: 0.5, animations: {
-                    self.i_heart.setWidth(18)
-                    self.i_heart.setHeight(20)
+                    self.i_heart.setWidth(20)
+                    self.i_heart.setHeight(22)
                 })            }
             
             

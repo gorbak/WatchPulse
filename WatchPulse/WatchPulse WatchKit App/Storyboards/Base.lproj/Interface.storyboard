@@ -16,7 +16,7 @@
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" id="vWU-wQ-vgm">
                             <items>
-                                <group width="1" height="20" alignment="center" id="cgm-Fs-gms">
+                                <group width="1" height="22" alignment="center" id="cgm-Fs-gms">
                                     <items>
                                         <label width="1" height="1" alignment="center" verticalAlignment="center" text="Puls Serca" textAlignment="center" id="VO8-aw-vs8">
                                             <color key="textColor" red="1" green="0.43402777777777779" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -25,19 +25,24 @@
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" height="50" alignment="left" layout="vertical" id="yHy-OF-29H">
+                                <group width="1" height="35" alignment="left" layout="vertical" id="yHy-OF-29H">
                                     <items>
-                                        <label width="1" alignment="center" text="Aktualny" textAlignment="center" id="8QI-f4-763">
-                                            <fontDescription key="font" type="system" pointSize="13"/>
-                                        </label>
-                                        <label width="1" alignment="left" verticalAlignment="center" text="---" textAlignment="center" id="beo-BR-IOQ">
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="font" type="system" weight="medium" pointSize="21"/>
-                                        </label>
+                                        <group width="1" alignment="left" layout="vertical" radius="0.0" spacing="0.0" id="fgK-3e-lJg">
+                                            <items>
+                                                <label height="0.69999999999999996" alignment="center" text="---" textAlignment="center" id="beo-BR-IOQ">
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="26"/>
+                                                </label>
+                                                <label height="0.29999999999999999" alignment="center" text="BPM" textAlignment="left" id="4Vf-WG-svB">
+                                                    <color key="textColor" red="0.89729352678571428" green="0.0" blue="0.0" alpha="0.91000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="11"/>
+                                                </label>
+                                            </items>
+                                        </group>
                                     </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" height="0.14999999999999999" alignment="left" radius="0.0" spacing="0.0" id="frw-kP-gwa">
+                                <group width="1" height="0.17000000000000001" alignment="left" radius="0.0" spacing="0.0" id="frw-kP-gwa">
                                     <items>
                                         <group width="0.40000000000000002" height="1" alignment="center" layout="vertical" id="dnO-h1-1dx">
                                             <items>
@@ -51,9 +56,9 @@
                                                 </label>
                                             </items>
                                         </group>
-                                        <group width="22" height="1" alignment="center" id="8Wl-eG-gFA">
+                                        <group width="25" height="1" alignment="center" id="8Wl-eG-gFA">
                                             <items>
-                                                <imageView width="18" height="20" alignment="center" verticalAlignment="center" image="Heart" contentMode="scaleAspectFit" id="vq5-3i-G58"/>
+                                                <imageView width="30" height="20" alignment="center" verticalAlignment="center" image="Heart" contentMode="scaleAspectFit" id="vq5-3i-G58"/>
                                             </items>
                                         </group>
                                         <group width="0.40000000000000002" height="1" alignment="center" layout="vertical" id="pWQ-df-bPz">
@@ -71,10 +76,14 @@
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" height="55" alignment="center" verticalAlignment="bottom" layout="vertical" id="xAu-Mr-hkN">
+                                <group width="1" height="70" alignment="center" verticalAlignment="bottom" layout="vertical" id="xAu-Mr-hkN">
                                     <items>
                                         <label height="10" alignment="center" text="Ilość próbek: 0" textAlignment="center" id="2lP-et-Gfj">
                                             <color key="textColor" white="1" alpha="0.57876712328767121" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                        <label height="10" alignment="center" text="Czas: 0:37" textAlignment="center" id="qnD-hV-RIs">
+                                            <color key="textColor" white="1" alpha="0.57876712330000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="system" pointSize="10"/>
                                         </label>
                                         <button width="0.80000000000000004" alignment="center" verticalAlignment="bottom" title="Wyślij Dane" id="Ynr-89-iLU">
@@ -93,6 +102,7 @@
                         <outlet property="l_current" destination="beo-BR-IOQ" id="cyv-9U-GJm"/>
                         <outlet property="l_max" destination="JvN-kZ-PNT" id="h4S-2s-sL9"/>
                         <outlet property="l_samplesCount" destination="2lP-et-Gfj" id="o4o-qn-huh"/>
+                        <outlet property="l_time" destination="qnD-hV-RIs" id="tBn-6g-1vM"/>
                         <outlet property="l_title" destination="VO8-aw-vs8" id="nZr-Ho-DK0"/>
                     </connections>
                 </controller>

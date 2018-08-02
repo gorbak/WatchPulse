@@ -41,3 +41,8 @@ extension Array
         return highest
     }
 }
+
+func secondsToHoursMinutesSeconds (seconds : Int) -> (hours: Int, minutes: Int, seconds: Int)
+{
+    return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+}
