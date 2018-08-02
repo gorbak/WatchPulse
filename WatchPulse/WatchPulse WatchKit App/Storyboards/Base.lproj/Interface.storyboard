@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchPulse_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="vWU-wQ-vgm">
+                            <items>
+                                <group width="1" height="20" alignment="center" id="cgm-Fs-gms">
+                                    <items>
+                                        <label width="1" height="1" alignment="center" verticalAlignment="center" text="Puls Serca" textAlignment="center" id="VO8-aw-vs8">
+                                            <color key="textColor" red="1" green="0.43402777777777779" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" weight="thin" pointSize="13"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                                <group width="1" height="50" alignment="left" layout="vertical" id="yHy-OF-29H">
+                                    <items>
+                                        <label width="1" alignment="center" text="Aktualny" textAlignment="center" id="8QI-f4-763">
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                        </label>
+                                        <label width="1" alignment="left" verticalAlignment="center" text="---" textAlignment="center" id="beo-BR-IOQ">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" weight="medium" pointSize="21"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                                </group>
+                                <group width="1" height="0.14999999999999999" alignment="left" radius="0.0" spacing="0.0" id="frw-kP-gwa">
+                                    <items>
+                                        <group width="0.40000000000000002" height="1" alignment="center" layout="vertical" id="dnO-h1-1dx">
+                                            <items>
+                                                <label width="1" height="0.59999999999999998" alignment="left" verticalAlignment="center" text="---" textAlignment="center" id="TNB-FZ-mFu">
+                                                    <color key="textColor" red="1" green="0.81597222219999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="14"/>
+                                                </label>
+                                                <label width="1" height="0.40000000000000002" alignment="left" verticalAlignment="center" text="Średni" textAlignment="center" id="v8r-je-R6R">
+                                                    <color key="textColor" red="1" green="0.81597222219999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="9"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="22" height="1" alignment="center" id="8Wl-eG-gFA">
+                                            <items>
+                                                <imageView width="18" height="20" alignment="center" verticalAlignment="center" image="Heart" contentMode="scaleAspectFit" id="vq5-3i-G58"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.40000000000000002" height="1" alignment="center" layout="vertical" id="pWQ-df-bPz">
+                                            <items>
+                                                <label width="1" height="0.59999999999999998" alignment="right" verticalAlignment="center" text="---" textAlignment="center" id="JvN-kZ-PNT">
+                                                    <color key="textColor" red="1" green="0.0" blue="0.42013888890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="14"/>
+                                                </label>
+                                                <label width="1" height="0.40000000000000002" alignment="left" verticalAlignment="center" text="Maks." textAlignment="center" id="eiR-K6-hPz">
+                                                    <color key="textColor" red="1" green="0.0" blue="0.42013888890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="9"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                                <group width="1" height="55" alignment="center" verticalAlignment="bottom" layout="vertical" id="xAu-Mr-hkN">
+                                    <items>
+                                        <label height="10" alignment="center" text="Ilość próbek: 0" textAlignment="center" id="2lP-et-Gfj">
+                                            <color key="textColor" white="1" alpha="0.57876712328767121" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                        <button width="0.80000000000000004" alignment="center" verticalAlignment="bottom" title="Wyślij Dane" id="Ynr-89-iLU">
+                                            <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                        </button>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="5"/>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="i_heart" destination="vq5-3i-G58" id="14M-gN-w4i"/>
+                        <outlet property="l_avg" destination="TNB-FZ-mFu" id="l7Y-QE-yKn"/>
+                        <outlet property="l_current" destination="beo-BR-IOQ" id="cyv-9U-GJm"/>
+                        <outlet property="l_max" destination="JvN-kZ-PNT" id="h4S-2s-sL9"/>
+                        <outlet property="l_samplesCount" destination="2lP-et-Gfj" id="o4o-qn-huh"/>
+                        <outlet property="l_title" destination="VO8-aw-vs8" id="nZr-Ho-DK0"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
