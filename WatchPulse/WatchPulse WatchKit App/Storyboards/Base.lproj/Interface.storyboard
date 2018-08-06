@@ -14,7 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchPulse_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" height="1" alignment="left" layout="vertical" id="vWU-wQ-vgm">
+                        <group width="1" alignment="left" layout="vertical" id="vWU-wQ-vgm">
                             <items>
                                 <group width="1" height="22" alignment="center" id="cgm-Fs-gms">
                                     <items>
@@ -25,9 +25,21 @@
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" height="35" alignment="left" layout="vertical" id="yHy-OF-29H">
+                                <group width="1" height="35" alignment="left" id="yHy-OF-29H">
                                     <items>
-                                        <group width="1" alignment="left" layout="vertical" radius="0.0" spacing="0.0" id="fgK-3e-lJg">
+                                        <group width="0.33000000000000002" alignment="left" layout="vertical" id="Wrm-ZP-knH">
+                                            <items>
+                                                <label width="1" height="0.5" alignment="center" verticalAlignment="center" text="---" textAlignment="center" id="7dx-fg-5DD">
+                                                    <color key="textColor" red="0.74901960779999999" green="0.84313725490000002" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="14"/>
+                                                </label>
+                                                <label width="1" height="0.40000000000000002" alignment="center" verticalAlignment="center" text="Dystans" textAlignment="center" id="mS9-KC-GsO">
+                                                    <color key="textColor" red="0.74901960779999999" green="0.84313725490000002" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="9"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="0.33000000000000002" height="1" alignment="center" layout="vertical" radius="0.0" spacing="0.0" id="fgK-3e-lJg">
                                             <items>
                                                 <label height="0.69999999999999996" alignment="center" text="---" textAlignment="center" id="beo-BR-IOQ">
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,10 +51,22 @@
                                                 </label>
                                             </items>
                                         </group>
+                                        <group width="0.33000000000000002" alignment="right" layout="vertical" id="zUy-B5-4SS">
+                                            <items>
+                                                <label width="1" height="0.5" alignment="center" verticalAlignment="center" text="---" textAlignment="center" id="T1Z-gB-LhW">
+                                                    <color key="textColor" red="0.0" green="0.56768973214285712" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="14"/>
+                                                </label>
+                                                <label width="1" height="0.40000000000000002" alignment="center" verticalAlignment="center" text="Kalorie" textAlignment="center" id="XsG-7Y-AWF">
+                                                    <color key="textColor" red="0.0" green="0.56768973209999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="9"/>
+                                                </label>
+                                            </items>
+                                        </group>
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" height="0.17000000000000001" alignment="left" radius="0.0" spacing="0.0" id="frw-kP-gwa">
+                                <group width="1" height="25" alignment="left" radius="0.0" spacing="0.0" id="frw-kP-gwa">
                                     <items>
                                         <group width="0.40000000000000002" height="1" alignment="center" layout="vertical" id="dnO-h1-1dx">
                                             <items>
@@ -76,17 +100,25 @@
                                     </items>
                                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
-                                <group width="1" height="70" alignment="center" verticalAlignment="bottom" layout="vertical" id="xAu-Mr-hkN">
+                                <group width="1" alignment="center" verticalAlignment="bottom" layout="vertical" id="xAu-Mr-hkN">
                                     <items>
                                         <label height="10" alignment="center" text="Ilość próbek: 0" textAlignment="center" id="2lP-et-Gfj">
                                             <color key="textColor" white="1" alpha="0.57876712328767121" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="system" pointSize="10"/>
                                         </label>
-                                        <label height="10" alignment="center" text="Czas: 0:37" textAlignment="center" id="qnD-hV-RIs">
+                                        <label height="10" alignment="center" text="Czas: 0:00" textAlignment="center" id="qnD-hV-RIs">
                                             <color key="textColor" white="1" alpha="0.57876712330000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="system" pointSize="10"/>
                                         </label>
-                                        <button width="0.80000000000000004" alignment="center" verticalAlignment="bottom" title="Wyślij Dane" id="Ynr-89-iLU">
+                                        <button width="0.80000000000000004" height="20" alignment="center" verticalAlignment="bottom" title="Rozpocznij" id="ZFb-ky-VH1">
+                                            <color key="backgroundColor" red="0.1960784314" green="0.58823529409999997" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                            <connections>
+                                                <action selector="toggleWorkout" destination="AgC-eL-Hgc" id="tRU-8a-q96"/>
+                                            </connections>
+                                        </button>
+                                        <button width="0.80000000000000004" height="15" alignment="center" verticalAlignment="bottom" title="Wyślij Dane" id="Ynr-89-iLU">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="system" pointSize="14"/>
                                         </button>
@@ -96,11 +128,19 @@
                             </items>
                         </group>
                     </items>
+                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
                     <connections>
+                        <outlet property="button_StartStop" destination="ZFb-ky-VH1" id="nKy-cc-x4u"/>
                         <outlet property="i_heart" destination="vq5-3i-G58" id="14M-gN-w4i"/>
                         <outlet property="l_avg" destination="TNB-FZ-mFu" id="l7Y-QE-yKn"/>
+                        <outlet property="l_avg_title" destination="v8r-je-R6R" id="CAQ-xf-1AA"/>
+                        <outlet property="l_calories" destination="T1Z-gB-LhW" id="5bU-NB-JP1"/>
+                        <outlet property="l_calories_title" destination="XsG-7Y-AWF" id="rts-jJ-vSZ"/>
                         <outlet property="l_current" destination="beo-BR-IOQ" id="cyv-9U-GJm"/>
+                        <outlet property="l_distance" destination="7dx-fg-5DD" id="usP-VI-hHU"/>
+                        <outlet property="l_distance_title" destination="mS9-KC-GsO" id="5dQ-IY-Wsm"/>
                         <outlet property="l_max" destination="JvN-kZ-PNT" id="h4S-2s-sL9"/>
+                        <outlet property="l_max_title" destination="eiR-K6-hPz" id="oYg-zk-MNb"/>
                         <outlet property="l_samplesCount" destination="2lP-et-Gfj" id="o4o-qn-huh"/>
                         <outlet property="l_time" destination="qnD-hV-RIs" id="tBn-6g-1vM"/>
                         <outlet property="l_title" destination="VO8-aw-vs8" id="nZr-Ho-DK0"/>

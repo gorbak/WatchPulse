@@ -10,13 +10,31 @@ import WatchKit
 import Foundation
 import HealthKit
 
+public struct colors
+{
+    static let start = #colorLiteral(red: 0.1960784314, green: 0.5882352941, blue: 0.1960784314, alpha: 1)
+    static let stop  = #colorLiteral(red: 0.7843137255, green: 0, blue: 0, alpha: 1)
+}
+
 class InterfaceController: WKInterfaceController
 {
     @IBOutlet var l_title: WKInterfaceLabel!
     @IBOutlet var l_current: WKInterfaceLabel!
+    
+    @IBOutlet var l_distance_title: WKInterfaceLabel!
+    @IBOutlet var l_distance: WKInterfaceLabel!
+    
+    @IBOutlet var l_calories_title: WKInterfaceLabel!
+    @IBOutlet var l_calories: WKInterfaceLabel!
+    
+    @IBOutlet var l_avg_title: WKInterfaceLabel!
     @IBOutlet var l_avg: WKInterfaceLabel!
+    
+    @IBOutlet var l_max_title: WKInterfaceLabel!
     @IBOutlet var l_max: WKInterfaceLabel!
+    
     @IBOutlet var i_heart: WKInterfaceImage!
+    
     @IBOutlet var l_samplesCount: WKInterfaceLabel!
     @IBOutlet var l_time: WKInterfaceLabel!
     
@@ -24,6 +42,7 @@ class InterfaceController: WKInterfaceController
     private let newHKW = WorkoutSession()
     private var heartrateRawSamples: [Int] = []
     
+    @IBOutlet var button_StartStop: WKInterfaceButton!
     private var startDate = Date()
     
     var workoutActive = false
@@ -33,13 +52,14 @@ class InterfaceController: WKInterfaceController
     var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     var currenQuery : HKQuery?
 
-    var timer: Timer? = nil
+    var timer: Timer = Timer()
     
     override func awake(withContext context: Any?)
     {
         super.awake(withContext: context)
-        
         // Configure interface objects here.
+        
+        toggleStarStopButton(start: true)
     }
     
     override func willActivate()
@@ -65,47 +85,42 @@ class InterfaceController: WKInterfaceController
             }
         }
         
-        timerStart()
-        workoutActive = false
-        startBtnTapped()
+//        timerStart()
+//        workoutActive = false
+//        startBtnTapped()
     }
 
+    override func didAppear()
+    {
+        super.didAppear()
+    }
+    
+    override func willDisappear()
+    {
+        super.willDisappear()
+    }
+    
     override func didDeactivate()
     {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
         
-        timer!.invalidate()
+//        timer!.invalidate()
     }
 
     func displayNotAllowed() {
         l_title.setText("Heartrate not allowed")
     }
-
     
-    // MARK: - Actions
-    @IBAction func startBtnTapped() {
-        if (self.workoutActive) {
-            //finish the current workout
-            self.workoutActive = false
-//            self.startStopButton.setTitle("Start")
-            if let workout = self.session {
-                healthStore.end(workout)
-            }
-        } else {
-            //start a new workout
-            self.workoutActive = true
-//            self.startStopButton.setTitle("Stop")
-            startWorkout()
-        }
-        
-    }
-    
-    func startWorkout() {
-        
+    func startWorkout()
+    {
         // If we have already started the workout, then do nothing.
-        if (session != nil) {
-            return
+        if (session != nil)
+        {
+            if (session!.state == .running)
+            {
+                return
+            }
         }
         
         // Configure the workout session.
@@ -121,6 +136,11 @@ class InterfaceController: WKInterfaceController
         }
         
         healthStore.start(self.session!)
+    }
+    
+    func stopWorkout()
+    {
+        healthStore.end(self.session!)
     }
     
     func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery?
@@ -164,6 +184,9 @@ class InterfaceController: WKInterfaceController
             self.l_avg.setText( "\(self.heartrateRawSamples.avg)" )
             self.l_max.setText( "\(self.heartrateRawSamples.max)" )
             
+            self.l_distance.setText( "\("---")" )
+            self.l_calories.setText( "\("---")" )
+            
             self.l_samplesCount.setText("Ilość próbek: \(self.heartrateRawSamples.count)")
             
             // retrieve source from sample
@@ -173,17 +196,23 @@ class InterfaceController: WKInterfaceController
     
     func timerStart()
     {
-        if(timer == nil) // init timer
-        {
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in  // the `[weak self] reference is only needed if you reference `self` in the closure
-                self!.timerTick()
-            }
+//        l_title.setText("Timer Should Start")
+//        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in  // the `[weak self] reference is only needed if you reference `self` in the closure
+//            self!.timerTick()
+//        }
+        
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerTick), userInfo: nil, repeats: true)
+        
+//        timer = Timer.scheduledTimer(withTimeInterval: 1.0,
+//                                     repeats: false) {
+//                                        timer in
+//                                        print("Tick!!!")
         }
-        timer?.fire()
     }
     
-    func timerTick()
+    @objc func timerTick()
     {
+        l_title.setText("TICK")
         let secondsSinceStart = Int( Date().timeIntervalSince(self.startDate) )
         let secondsAndMinutes = secondsToHoursMinutesSeconds(seconds: secondsSinceStart)
         let minutesString = String(secondsAndMinutes.minutes)
@@ -207,11 +236,43 @@ class InterfaceController: WKInterfaceController
                     self.i_heart.setWidth(20)
                     self.i_heart.setHeight(22)
                 })            }
-            
-            
         }
     }
     
+    func toggleStarStopButton(start: Bool)
+    {
+        if(start)
+        {
+            self.workoutActive = false
+            self.button_StartStop.setTitle("Rozpocznij")
+            self.button_StartStop.setBackgroundColor(colors.start)
+        }
+        else
+        {
+            //start a new workout
+            self.workoutActive = true
+            self.button_StartStop.setTitle("Zatrzymaj")
+            self.button_StartStop.setBackgroundColor(colors.stop)
+        }
+    }
+    
+    @IBAction func toggleWorkout()
+    {
+        if (self.workoutActive)
+        {
+            // finish the current workout
+            toggleStarStopButton(start: true)
+            
+            stopWorkout()
+        }
+        else
+        {
+            // start a new workout
+            toggleStarStopButton(start: false)
+            
+            startWorkout()
+        }
+    }
 }
 
 extension InterfaceController: HKWorkoutSessionDelegate
@@ -235,9 +296,14 @@ extension InterfaceController: HKWorkoutSessionDelegate
     
     func workoutDidStart(_ date : Date)
     {
-        if let query = createHeartRateStreamingQuery(date) {
+        if let query = createHeartRateStreamingQuery(date)
+        {
             self.currenQuery = query
             healthStore.execute(query)
+            
+            self.startDate = Date()
+            timerStart()
+            
         } else {
             l_title.setText("Heartrate disabled")
         }
@@ -245,8 +311,20 @@ extension InterfaceController: HKWorkoutSessionDelegate
     
     func workoutDidEnd(_ date : Date)
     {
+        heartrateRawSamples = []
+        
         healthStore.stop(self.currenQuery!)
+        
+        self.l_samplesCount.setText("Ilość próbek: \(self.heartrateRawSamples.count)")
+        
         l_current.setText("---")
+        
+        l_avg.setText("---")
+        l_max.setText("---")
+        
+        l_distance.setText("---")
+        l_calories.setText("---")
+        
         session = nil
     }
 }
