@@ -207,7 +207,7 @@ class InterfaceController: WKInterfaceController
 //                                     repeats: false) {
 //                                        timer in
 //                                        print("Tick!!!")
-        }
+//        }
     }
     
     @objc func timerTick()
