@@ -24,6 +24,11 @@
 		64BC5EC2211282BE002DDCD3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64BC5EC1211282BE002DDCD3 /* HealthKit.framework */; };
 		64BC5EC421128756002DDCD3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC5EC321128756002DDCD3 /* Globals.swift */; };
 		64BC5EC521128756002DDCD3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC5EC321128756002DDCD3 /* Globals.swift */; };
+		9160510180584BBA2F82127D /* Pods_WatchPulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081D1EEB791FA726BC7445AF /* Pods_WatchPulse.framework */; };
+		B7AB41C9211984E40040EF35 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB41C8211984E40040EF35 /* RegisterViewController.swift */; };
+		B7AB41CC211985630040EF35 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB41CB211985630040EF35 /* MainViewController.swift */; };
+		B7AB41CF211987BB0040EF35 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB41CE211987BB0040EF35 /* LoginViewController.swift */; };
+		B7AB41D22119CF600040EF35 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB41D12119CF600040EF35 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		035A48CB8D2D3F7BA00CD013 /* Pods-WatchPulse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchPulse.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchPulse/Pods-WatchPulse.release.xcconfig"; sourceTree = "<group>"; };
+		081D1EEB791FA726BC7445AF /* Pods_WatchPulse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchPulse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CC46BDB8139B5B4ED3B8FE /* Pods-WatchPulse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchPulse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchPulse/Pods-WatchPulse.debug.xcconfig"; sourceTree = "<group>"; };
 		64423E5C21125EC6008338D8 /* WatchPulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64423E5F21125EC6008338D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64423E6121125EC6008338D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 		64BC5EC0211282BE002DDCD3 /* WatchPulse WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchPulse WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		64BC5EC1211282BE002DDCD3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		64BC5EC321128756002DDCD3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		B7AB41C8211984E40040EF35 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B7AB41CB211985630040EF35 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B7AB41CE211987BB0040EF35 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B7AB41D12119CF600040EF35 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64423EA521127EF1008338D8 /* HealthKit.framework in Frameworks */,
+				9160510180584BBA2F82127D /* Pods_WatchPulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,9 +123,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		867F032BCD4B03B7288AE4BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4883BE08E08134A383D71B63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37CC46BDB8139B5B4ED3B8FE /* Pods-WatchPulse.debug.xcconfig */,
+				035A48CB8D2D3F7BA00CD013 /* Pods-WatchPulse.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		64423E5321125EC6008338D8 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +150,7 @@
 				64423E8121125EC9008338D8 /* WatchPulse WatchKit Extension */,
 				64423E5D21125EC6008338D8 /* Products */,
 				64423EA321127EF1008338D8 /* Frameworks */,
+				4883BE08E08134A383D71B63 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +219,10 @@
 		64423E9821126275008338D8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B7AB41D02119CF510040EF35 /* API */,
+				B7AB41CD211987560040EF35 /* Login */,
+				B7AB41C7211984D00040EF35 /* Register */,
+				B7AB41CA211985540040EF35 /* Main */,
 				64423E5F21125EC6008338D8 /* AppDelegate.swift */,
 				64423E6121125EC6008338D8 /* ViewController.swift */,
 				64BC5EC321128756002DDCD3 /* Globals.swift */,
@@ -225,8 +259,41 @@
 			children = (
 				64BC5EC1211282BE002DDCD3 /* HealthKit.framework */,
 				64423EA421127EF1008338D8 /* HealthKit.framework */,
+				081D1EEB791FA726BC7445AF /* Pods_WatchPulse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7AB41C7211984D00040EF35 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB41C8211984E40040EF35 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B7AB41CA211985540040EF35 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB41CB211985630040EF35 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B7AB41CD211987560040EF35 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB41CE211987BB0040EF35 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B7AB41D02119CF510040EF35 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB41D12119CF600040EF35 /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,10 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64423E9321125EC9008338D8 /* Build configuration list for PBXNativeTarget "WatchPulse" */;
 			buildPhases = (
+				D901DBEFCB160AFD2AFE62D4 /* [CP] Check Pods Manifest.lock */,
 				64423E5821125EC6008338D8 /* Sources */,
 				64423E5921125EC6008338D8 /* Frameworks */,
 				64423E5A21125EC6008338D8 /* Resources */,
 				64423E9221125EC9008338D8 /* Embed Watch Content */,
+				A6EBB97F3E3A680A30F04A00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,6 +326,7 @@
 			buildPhases = (
 				64423E6C21125EC8008338D8 /* Resources */,
 				64423E8E21125EC9008338D8 /* Embed App Extensions */,
+				867F032BCD4B03B7288AE4BB /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,14 +437,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A6EBB97F3E3A680A30F04A00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WatchPulse/Pods-WatchPulse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchPulse/Pods-WatchPulse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D901DBEFCB160AFD2AFE62D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WatchPulse-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		64423E5821125EC6008338D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7AB41CF211987BB0040EF35 /* LoginViewController.swift in Sources */,
 				64423E6221125EC6008338D8 /* ViewController.swift in Sources */,
 				64423E6021125EC6008338D8 /* AppDelegate.swift in Sources */,
 				64BC5EC421128756002DDCD3 /* Globals.swift in Sources */,
+				B7AB41C9211984E40040EF35 /* RegisterViewController.swift in Sources */,
+				B7AB41CC211985630040EF35 /* MainViewController.swift in Sources */,
+				B7AB41D22119CF600040EF35 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +764,7 @@
 		};
 		64423E9421125EC9008338D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CC46BDB8139B5B4ED3B8FE /* Pods-WatchPulse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WatchPulse/WatchPulse.entitlements;
@@ -670,6 +786,7 @@
 		};
 		64423E9521125EC9008338D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 035A48CB8D2D3F7BA00CD013 /* Pods-WatchPulse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WatchPulse/WatchPulse.entitlements;

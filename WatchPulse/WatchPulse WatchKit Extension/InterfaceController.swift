@@ -140,6 +140,11 @@ class InterfaceController: WKInterfaceController
     
     func stopWorkout()
     {
+        if (session == nil)
+        {
+            return
+        }
+        
         healthStore.end(self.session!)
     }
     

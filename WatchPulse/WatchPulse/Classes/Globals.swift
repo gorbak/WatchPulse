@@ -9,6 +9,30 @@
 import UIKit
 import WatchKit
 
+struct status
+{
+    static let ok = 200
+    static let success = "SUCCESS"
+    static let expired = "EXPIRED"
+    static let error = "BAD_REQUEST"
+    struct invalidCredentials
+    {
+        static let key = "INCORRECT_CREDENTIALS"
+        static let message = NSLocalizedString("ERROR_InvalidCredentials", comment: "")
+    }
+    static let invalidArgumentType = "INVALID_ARGUMENT_TYPE"
+    static let unauthorized  = "UNAUTHORIZED"
+    static let unknownError  = "UNKNOWN_ERROR"
+    static let unknown       = "UNKNOWN"
+    static let malformedJson = "MALFORMED_JSON"
+    static let databaseError = "DB_ERROR"
+    static let notFound      = "NOT_FOUND"
+}
+
+func secondsToHoursMinutesSeconds (seconds : Int) -> (hours: Int, minutes: Int, seconds: Int)
+{
+    return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+}
 
 extension Array
 {
@@ -42,7 +66,13 @@ extension Array
     }
 }
 
-func secondsToHoursMinutesSeconds (seconds : Int) -> (hours: Int, minutes: Int, seconds: Int)
+extension Dictionary
 {
-    return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    mutating func merge(dict: [Key: Value])
+    {
+        for (k, v) in dict
+        {
+            updateValue(v, forKey: k)
+        }
+    }
 }
