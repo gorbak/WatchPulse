@@ -16,7 +16,7 @@ class API
     let Almgr : Alamofire.SessionManager = {
         // Create the server trust policies
         let serverTrustPolicies: [String: ServerTrustPolicy] = [
-            "health.ttpsc.pl": .disableEvaluation
+            endpoint.domain: .disableEvaluation
         ]
         // Create custom manager
         let configuration = URLSessionConfiguration.default
@@ -30,12 +30,14 @@ class API
     
     private struct endpoint
     {
-        static let key = "c06cf9c4-5c05-4f9a-b91d-06b0e6aff45a"
-        static let domain = "https://health.ttpsc.pl"
+        static let key = "{session-auth-key}"
+        static let webProtocol = "https://"
+        static let domain = "health.YourDomain.pl"
+        static let baseAaddress = webProtocol + domain
         
-        static let verifyUser = domain + "/Thingworx/Things/WebApiThing/Services/VerifyUser"
-        static let registerUser = domain
-        static let postMessage  = domain + ":443/ProjectHealthWebhook/postMessage"
+        static let verifyUser = baseAaddress + "/Thingworx/Things/WebApiThing/Services/VerifyUser"
+        static let registerUser = baseAaddress
+        static let postMessage  = baseAaddress + ":443/ProjectHealthWebhook/postMessage"
         
         struct headers
         {
