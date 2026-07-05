@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-WatchPulse WatchKit Extension/Pods-WatchPulse WatchKit Extension-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-watchOS/Alamofire.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON-watchOS/SwiftyJSON.bundle

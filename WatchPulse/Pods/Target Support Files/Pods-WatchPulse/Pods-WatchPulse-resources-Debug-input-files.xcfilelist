@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-WatchPulse/Pods-WatchPulse-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-iOS/Alamofire.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON-iOS/SwiftyJSON.bundle

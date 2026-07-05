@@ -1,0 +1,6 @@
+framework module Pods_WatchPulse_WatchKit_Extension {
+  umbrella header "Pods-WatchPulse WatchKit Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

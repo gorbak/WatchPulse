@@ -219,9 +219,9 @@ class InterfaceController: WKInterfaceController
     {
         l_title.setText("TICK")
         let secondsSinceStart = Int( Date().timeIntervalSince(self.startDate) )
-        let secondsAndMinutes = secondsToHoursMinutesSeconds(seconds: secondsSinceStart)
-        let minutesString = String(secondsAndMinutes.minutes)
-        let secondsString = String(format: "%02d", secondsAndMinutes.seconds)
+        let timeObject = TimeObject(seconds: secondsSinceStart)
+        let minutesString = String(timeObject.minutes)
+        let secondsString = String(format: "%02d", timeObject.seconds)
         self.l_time.setText( "Czas: \(minutesString):\(secondsString)" )
     }
     
